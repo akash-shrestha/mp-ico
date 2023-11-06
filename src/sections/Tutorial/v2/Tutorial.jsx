@@ -1,0 +1,55 @@
+import { FiChevronRight } from "react-icons/fi";
+import { SectionTitle } from "@components/sectionTitle";
+import Button from "@components/button";
+
+import data from "@assets/data/tutorial";
+import earthThumb from "@assets/images/icons/earthBg.svg";
+import lockerThumb from "@assets/images/icons/locker-dynamic-color.png";
+import TutorialStyleWrapper from "./Tutorial.style";
+
+const Tutorial = () => {
+  return (
+    <TutorialStyleWrapper>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-6 left_content">
+            <SectionTitle title="HOW TO PARTICIPATE" subtitle="3 EASY STEPS" />
+            <p>
+              Participate in your favorite public sales with a few easy steps
+            </p>
+            {/* <Button href="/kyc-1" sm variant="outline">
+              {" "}
+              Verify KYC <FiChevronRight />
+            </Button> */}
+          </div>
+          <div className="col-md-6 right_content">
+            {data?.map((step, i) => (
+              <div key={i} className="participate-item d-flex">
+                <div className="number-image">
+                  <img src={step.icon.src} alt="Participate icon" />
+                </div>
+                <div className="participate-info">
+                  <h4 className="mb-10">{step.title}</h4>
+                  <p className="description">{step.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <img
+        className="img-fluid bg_shape earth_thumb"
+        src={earthThumb.src}
+        alt="img"
+      ></img>
+      <img
+        className="img-fluid bg_shape locker_thumb"
+        src={lockerThumb.src}
+        alt="img"
+      ></img>
+    </TutorialStyleWrapper>
+  );
+};
+
+export default Tutorial;
